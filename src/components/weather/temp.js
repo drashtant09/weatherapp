@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
- import Weathercard from "./weathercard";
+import Weathercard from "./weathercard";
 import "./style.css";
 
 const Temp = () => {
@@ -8,7 +8,7 @@ const Temp = () => {
 
   const getWeatherInfo = async () => {
     try {
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=1f93dc827d9498e254222e08edde4a23`;
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=c3acb4a0c49d02d7e7b4151608061614`
 
       let res = await fetch(url);
       let data = await res.json();
@@ -35,8 +35,6 @@ const Temp = () => {
       console.log(error);
     }
   };
-  
-
 
   useEffect(() => {
     getWeatherInfo();
@@ -66,9 +64,9 @@ const Temp = () => {
       </div>
 
       {/* our temp card  */}
-      <Weathercard tempInfo={tempInfo} />
+      <Weathercard {...tempInfo} />
     </>
   );
 };
 
-export default Temp
+export default Temp;
